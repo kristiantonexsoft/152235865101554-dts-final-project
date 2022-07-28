@@ -61,7 +61,7 @@ class Login extends Component {
                     <div className="page-title-box">
                       <h3 className="page-title"><b><i className="fas fa-key" />&nbsp; Login</b></h3>
                       <ol className="breadcrumb">
-                        <li className="breadcrumb-item active">Sistem mau masak apa hari ini ?</li>
+                       
                       </ol>
                     </div>
                   </div>

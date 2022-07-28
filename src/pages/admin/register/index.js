@@ -63,7 +63,7 @@ class Register extends Component {
     <HeaderContent>
             <h3 className="page-title"><b><i className="fab fa-pied-piper-alt" />&nbsp;Register User</b></h3>
             <ol className="breadcrumb">
-              <li className="breadcrumb-item active">Sistem mau masak apa hari ini ?</li>
+           
             </ol>
             <div className="state-information d-none d-sm-block">
             </div>

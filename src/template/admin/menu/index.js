@@ -69,7 +69,7 @@ class Menu extends Component {
         <li>
         <Link to="/kuliner/category">
           <Fitur onClick={() => this.props.history.push("/kuliner/category")}>
-            <i className="fas fa-bookmark" /><span> Artikel Kuliner </span>
+            <i className="far fa-comment " /><span> Request Tutorial </span>
           </Fitur>
           </Link>
         </li>
@@ -101,7 +101,7 @@ class Menu extends Component {
         <li>
         <Link to="/kuliner/category">
           <Fitur onClick={() => this.props.history.push("/kuliner/category")}>
-            <i className="fas fa-bookmark" /><span> Artikel Kuliner </span>
+          <i className="far fa-comment " /><span> Request Tutorial </span>
           </Fitur>
           </Link>
         </li>

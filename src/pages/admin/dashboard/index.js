@@ -158,7 +158,7 @@ class Dashboard extends Component {
     <HeaderContent>
     <h3 className="page-title"><b><i className="fas fa-utensils" />&nbsp; Mau masak apa hari ini ?</b></h3>
             <ol className="breadcrumb">
-              <li className="breadcrumb-item active">Sistem Informasi Kuliner</li>
+             
             </ol>
             <div className="state-information d-none d-sm-block">
            
