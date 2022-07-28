@@ -30,7 +30,7 @@ class Register extends Component {
       let obj = this.state
 
       if(obj.username == ""){
-        alert("Username wajib diisi !!!")
+       
     }else{
       var indexDivisi = this.props.dataUsers.map(function(e) { return e.username; }).indexOf(obj.username);
 
@@ -71,17 +71,17 @@ class Register extends Component {
     <IsiBody>
     <Fieldset>
             <Label>Nama Pengguna<font color="red">*</font></Label>
-            <Input type="text" name="nama" value={this.state.nama} onChange={this.setValue}/>
+            <Input type="text" name="nama" required="required" value={this.state.nama} onChange={this.setValue}/>
           </Fieldset>
 
           <Fieldset>
             <Label>Username<font color="red">*</font></Label>
-            <Input type="text" name="username" value={this.state.username} onChange={this.setValue}/>
+            <Input type="text" name="username" required="required" value={this.state.username} onChange={this.setValue}/>
           </Fieldset>
 
           <Fieldset>
             <Label>Password <font color="red">*</font></Label>
-            <Input type="password" name="password" value={this.state.password} onChange={this.setValue}/>
+            <Input type="password" name="password" required="required" value={this.state.password} onChange={this.setValue}/>
           </Fieldset>
           
           <Button className="btn btn-primary" onClick={this.setRegistrasi}>

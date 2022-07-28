@@ -25,7 +25,7 @@ class Dashboard extends Component {
         rowsPerPage = this.state.rowsPerPage
       }
   
-      let url = `https://masak-apa-tomorisakura.vercel.app/api/recipes`;
+      let url = `https://masak-apa-tomorisakura.vercel.app/api/recipes/1`;
   
       Promise.all([
         fetch(url)
@@ -50,10 +50,10 @@ class Dashboard extends Component {
       var keyword = el.target.value;
   
       if(keyword === ""){
-        this.getFilms()
+        this.getKuliner()
       }else{
         
-        let url = `https://api.themoviedb.org/3/search/movie?api_key=212c17f768fb1b37d54968403dc1a500&query=${keyword}`;
+        let url = `https://masak-apa-tomorisakura.vercel.app/api/search/?q=${keyword}`;
     
         Promise.all([
           fetch(url)
@@ -63,7 +63,7 @@ class Dashboard extends Component {
           )
           .then(([json]) => {
             this.setState({
-              films: json.results
+              kuliner: json.results
             });
     
           })
@@ -78,28 +78,6 @@ class Dashboard extends Component {
   
 
     componentDidMount() {
-
-      fetch(`https://data.covid19.go.id/public/api/update.json`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Headers": "Authorization, Content-Type",
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      )
-        .then((response) => response.json())
-        .then((json) => {
-         
-          this.setState({
-            update: json
-          });
-
-        })
-        .catch((e) => {
-        });
-
       this.getKuliner()
     }
 

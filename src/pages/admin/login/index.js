@@ -26,7 +26,7 @@ class Login extends Component {
       const { username, password} = userObj
 
       if(username == "" || password == ""){
-           alert("Data login harus diisi secara lengkap !!")
+           
       }else{
 
         let validLogin = this.props.dataUser.filter(user => {
