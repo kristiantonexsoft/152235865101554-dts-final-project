@@ -70,12 +70,13 @@ class Register extends Component {
     </HeaderContent>
     <IsiBody>
     <Fieldset>
-            <Label>Nama Pengguna<font color="red">*</font></Label>
+      
+            <Label>Nama Pengguna <font color="red">*</font></Label>
             <Input type="text" name="nama" required="required" value={this.state.nama} onChange={this.setValue}/>
           </Fieldset>
 
           <Fieldset>
-            <Label>Username<font color="red">*</font></Label>
+            <Label>Username <font color="red">*</font></Label>
             <Input type="text" name="username" required="required" value={this.state.username} onChange={this.setValue}/>
           </Fieldset>
 
@@ -83,7 +84,7 @@ class Register extends Component {
             <Label>Password <font color="red">*</font></Label>
             <Input type="password" name="password" required="required" value={this.state.password} onChange={this.setValue}/>
           </Fieldset>
-          
+          Wajib diisi <font color="red">(*)</font><br/><br/>
           <Button className="btn btn-primary" onClick={this.setRegistrasi}>
             <i className="fa fa-save" />&nbsp; Register
           </Button>

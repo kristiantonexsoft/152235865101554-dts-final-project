@@ -5,13 +5,13 @@ let defaultState = {
         nama : "User Kuliner",
     }],
     komentar : [{
-        nama : "Budi",
+        nama : "Kristianto",
         komentar : "keliatannya enak bangettt...",
         tanggal : "",
         postingan : ""
     },
     {
-        nama : "Budi",
+        nama : "Ikhlasul Amal",
         komentar : "gatahan liat masakannya...",
         tanggal : "",
         postingan : ""
@@ -42,7 +42,7 @@ const userReducer = (state = defaultState, action) => {
             }
 
             case "SAVE_MASAKAN":
-                
+
             let newData2 = {
                 username: action.payload.username,
                 password: action.payload.password,

@@ -25,7 +25,7 @@ class Dashboard extends Component {
         rowsPerPage = this.state.rowsPerPage
       }
   
-      let url = `https://masak-apa-tomorisakura.vercel.app/api/recipes/1`;
+      let url = `https://masak-apa-tomorisakura.vercel.app/api/recipes`;
   
       Promise.all([
         fetch(url)
@@ -174,17 +174,17 @@ class Dashboard extends Component {
 
     {
                     this.state.kuliner.map((b, index) => {     
-                      
+                      let url = `/kuliner/detail/${b.key}`;
                         return (
- 
                           <Card
                             key={index}
                             thumb={b.thumb}
                             title={b.title}
                             times={b.times}
                             portion={b.portion}
+                            linkUrl={url}
+                            onClick={() => this.props.history.push(url)}
                           />
-
 )
 })
 }

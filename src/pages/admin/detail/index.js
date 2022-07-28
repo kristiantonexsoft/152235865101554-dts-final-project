@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { 
-  Card,
-  Button,
   IsiBody,
   HeaderContent, 
-  Content,
-  Modal} from "../../../component"
-  import { Link, useParams } from "react-router-dom"
+  Content} from "../../../component"
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            films :{},
+            kuliner :{},
+            author : {},
+            step : [],
+            bahan : [],
             url : ""
         }
     }
 
-    getFilms() {
+    getKuliner() {
   
-      let url = `https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=212c17f768fb1b37d54968403dc1a500`;
+      let url = `https://masak-apa-tomorisakura.vercel.app/api/recipe/${this.props.match.params.id}`;
   
       Promise.all([
         fetch(url)
@@ -29,15 +28,13 @@ class Dashboard extends Component {
           Promise.all([response.json()])
         )
         .then(([json]) => {
-
-          let img = `https://image.tmdb.org/t/p/w300_and_h450_bestv2${json.backdrop_path}`;
           this.setState({
-            films: json,
-            url : img
+            kuliner: json.results,
+            author : json.results.author,
+            step : json.results.step,
+            bahan : json.results.ingredient
           });
 
-          console.log("gambar", this.state.url)
-  
         })
   
         .catch(() => {
@@ -47,91 +44,76 @@ class Dashboard extends Component {
   
 
     componentDidMount() {
-      this.getFilms()
-    }
-
-    checkAkses = () =>{
-     if (this.props.checkLogin === false) {
-        this.props.history.push("/login");
-        alert("Anda harus login terlebih dahulu!!")
-      }
+      this.getKuliner()
     }
 
   render() {
+    const stepItems = this.state.step.map((tahap) =>
+    <li>{tahap}</li>
+    );
 
- console.log(this.state.films)
- this.checkAkses()
+    const bahanItems = this.state.bahan.map((bahanMasak) =>
+    <li>{bahanMasak}</li>
+  );
 
         return (
             <>
     <Content>
     <HeaderContent>
-    <h3 className="page-title"><b><i className="fab fa-pied-piper-alt" />&nbsp;Detail Film : {this.state.films.original_title}</b></h3>
+    <h3 className="page-title"><b><i className="fas fa-utensils" />&nbsp;&nbsp;{this.state.kuliner.title}</b></h3>
             <ol className="breadcrumb">
-              <li className="breadcrumb-item active">Sistem Informasi Bioskop</li>
+              <li className="breadcrumb-item active"></li>
             </ol>
             <div className="state-information d-none d-sm-block">
            
             </div>
     </HeaderContent>
     <IsiBody>
+
+    <p align="center">
+    <h3>{this.state.kuliner.title}</h3><br/>
+    <button className="btn btn-primary btn-sm"><i className="fas fa-clock" /> {this.state.kuliner.times}</button>&nbsp;
+      <button className="btn btn-success btn-sm"><i className="fas fa-utensils" /> {this.state.kuliner.servings}</button>&nbsp;
+      <button className="btn btn-warning btn-sm"><i className="fas fa-info" /> &nbsp; TIngkat Kesulitan : {this.state.kuliner.dificulty}</button>&nbsp;
+      <br/><br/>
+      <i className="fas fa-user" /> Resep by : {this.state.author.user} &nbsp; <i className="fas fa-clock" /> Tanggal Publikasi : {this.state.author.datePublished}
+      <br/>
+      <img src={this.state.kuliner.thumb} height={300}/>
+      </p>
     
-    <div className="row">  
+      <p align="justify">
+      {this.state.kuliner.desc}
+      </p>
 
-    
-  <div className="col-lg-4 col-md-6 col-5">
-    <center><img src={this.state.url}/>
-    <br/><br/>
-    <button className="btn btn-primary" onClick={() => this.props.history.push("/films")}>
-                     <i className="fas fa-angle-double-left" />&nbsp;Kembali
-            </button>
-    </center>  
-  </div>
-  <div className="col-lg-8 col-md-6 col-7">
-    <table width="99%" cellPadding={5}>
-      <tbody>
-        <tr>
-          <td width={220}>Judul Film</td>
-          <td>:</td>
-          <td>{this.state.films.original_title}</td>
-        </tr>
+      <b>Bahan-bahan : </b>
+      <ul>{bahanItems}</ul>
+      <b>Tahapan Masak : </b>
+      <ul>{stepItems}</ul>
+<br/>
+      <b><h4>Komentar : </h4></b>
+     
 
-        <tr>
-          <td>Subtitle Film</td>
-          <td>:</td>
-          <td>{this.state.films.original_language}</td>
-        </tr>
-
-        <tr>
-          <td>Deskripsi Film</td>
-          <td>:</td>
-          <td>{this.state.films.overview}</td>
-        </tr>
-        <tr>
-          <td>Tanggal Release</td>
-          <td>:</td>
-          <td>{this.state.films.release_date}</td>
-        </tr>
-        <tr>
-          <td>Status</td>
-          <td>:</td>
-          <td>{this.state.films.status}</td>
-        </tr>
-        <tr>
-          <td>TagLine</td>
-          <td>:</td>
-          <td>{this.state.films.tagline}</td>
-        </tr>
-        <tr>
-          <td>Rating</td>
-          <td>:</td>
-          <td>{this.state.films.vote_average} dari 10 (Dinilai {this.state.films.vote_count} Orang)</td>
-        </tr>
-      </tbody></table>
-  </div>
-
+        {
+                    this.props.komentarList.map((b, index) => {     
+                        return (
+                          <div className="alert alert-secondary" role="alert">
+      <font color="#0285b4">
+        <table>
+                          <tr key={index}>
+            <td width={180}><img src='https://smkbitalaga.sch.id/uploads/gallery/media/avatar-staff.png' height={50}/> <b>{b.nama}</b>
+            </td>
+            <td>" {b.komentar} "</td>
+          </tr>
+          </table>
+        </font>
      </div>
+)
+})
+}
+        
 
+
+    
           </IsiBody>
     </Content>
 
@@ -144,7 +126,8 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => ({
   checkLogin: state.AReducer.isLogin,
-  dataUserLogin: state.AReducer.userLogin
+  dataUserLogin: state.AReducer.userLogin,
+  komentarList: state.UReducer.komentar
 })
 
 const mapDispatchToProps = dispatch => {
