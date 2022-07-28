@@ -8,7 +8,7 @@ class Footer extends Component {
     render() {
         return (
             <footer className="footer">
-        © DTS 2022 Kristianto - 152235865101554. All Right Reserved
+        © 2022 Kristianto - 152235865101554.
     </footer>
         );
     }
