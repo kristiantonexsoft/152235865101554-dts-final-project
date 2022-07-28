@@ -7,27 +7,20 @@ class Card extends Component {
         this.state = {}
     }
     render() {
-        const { src, datatarget, judul, stokBuku} = this.props
+        const { thumb,title,times, portion} = this.props
         return (
-          <div className="col-xl-4">
-          <div className="cardBuku m-b-30">
-          <div href="#" data-toggle="modal" onClick={this.props.onClick} className="waves-effect" data-target={datatarget}>
-            <img className="card-img-top" src={src} height={250} alt="Buku" />
-          </div>
-            <div className="card-body">
-              <h4 className="font-16 mt-0 text-primary">
-              <div href="#" onClick={this.props.onClick} data-toggle="modal" className="waves-effect" data-target={datatarget}>
-                {judul} {stokBuku !== 0 ? <><span className="badge badge-success">Stok : {stokBuku}</span></> : <><span className="badge badge-danger">Kosong</span></>}
-              </div>
-                </h4>
-              <p className="card-text">
-              Pengarang : <br/>
-              Sewa/hari : Rp.
-              </p>
-              
-            </div>
-          </div>
-        </div>
+          <div className="col-md-6 col-lg-6 col-xl-3">
+  <div className="card m-b-30">
+  <div className="waves-effect">
+    <img className="card-img-top img-fluid" src={thumb} height={75}  alt="Card image cap" />
+  </div>
+    <div className="card-body">
+      <h4 className="card-title font-16 mt-0">{title}</h4>
+      <button className="btn btn-primary btn-sm"><i className="fas fa-clock" /> {times}</button>&nbsp;
+      <button className="btn btn-success btn-sm"><i className="fas fa-utensils" /> {portion}</button>&nbsp;
+    </div>
+  </div>
+</div>
         );
     }
 }

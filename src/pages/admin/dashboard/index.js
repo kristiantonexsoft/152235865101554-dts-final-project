@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { 
-  IsiBody,
+  IsiBody, Button,
   HeaderContent, 
-  Content} 
+  Content, Card} 
   from "../../../component"
 
 class Dashboard extends Component {
@@ -12,9 +12,9 @@ class Dashboard extends Component {
         this.state = {
             kuliner : [],
             update : {},
-            page: 0,
-            rowsPerPage: 20,
-            totalRows: 0
+            page: 1,
+            rowsPerPage: 10,
+            totalRows: 100
         }
     }
 
@@ -44,6 +44,68 @@ class Dashboard extends Component {
           
         });
     }
+
+
+    getKulinerKlikNext() {
+      let pageAKtif=this.state.page+1
+      this.setState({
+        page : pageAKtif
+      });
+      let url = `https://masak-apa-tomorisakura.vercel.app/api/recipes/${pageAKtif}`;
+  
+      Promise.all([
+        fetch(url)
+      ])
+        .then(([response]) =>
+          Promise.all([response.json()])
+        )
+        .then(([json]) => {
+          this.setState({
+            kuliner: json.results
+          });
+  
+        })
+  
+        .catch(() => {
+          
+        });
+    }
+
+
+    getKulinerKlikPrevious() {
+      let pageAktif=0
+      if (this.state.page === 1) {
+          pageAktif = 1
+          this.setState({
+            page : pageAktif
+          });
+      }else{
+          pageAktif = this.state.page-1
+          this.setState({
+            page : pageAktif
+          });
+      }
+      
+      let url = `https://masak-apa-tomorisakura.vercel.app/api/recipes/${pageAktif}`;
+  
+      Promise.all([
+        fetch(url)
+      ])
+        .then(([response]) =>
+          Promise.all([response.json()])
+        )
+        .then(([json]) => {
+          this.setState({
+            kuliner: json.results
+          });
+  
+        })
+  
+        .catch(() => {
+          
+        });
+    }
+
 
 
     searchData= el=>{
@@ -104,31 +166,29 @@ class Dashboard extends Component {
     <IsiBody>
     <input type="text" onChange={this.searchData} name="cari" placeholder="Masukan Kata Kunci Menu Kuliner" className="form-control"/>   
     <br/>
+    <Button className="btn btn-outline-info waves-effect waves-light form-control" onClick={() => this.getKulinerKlikPrevious()}><i className="fas fa-step-backward" /> Halaman Sebelumnya</Button><br/>
+<Button className="btn btn-outline-primary waves-effect waves-light form-control" onClick={() => this.getKulinerKlikNext()}> Halaman Selanjutnya <i className="fas fa-step-forward " /></Button>
+<center>Halaman : {this.state.page}</center><br/>
     <div className="row">  
+
+    
 
     {
                     this.state.kuliner.map((b, index) => {     
                       
                         return (
-
-  <div className="col-md-6 col-lg-6 col-xl-3" key={index}>
-  <div className="card m-b-30">
-  {/* <Link to={}> */}
-  <div className="waves-effect">
-    <img className="card-img-top img-fluid" src={b.thumb} height={75}  alt="Card image cap" />
-  </div>
-  {/* </Link> */}
-    <div className="card-body">
-      <h4 className="card-title font-16 mt-0">{b.title}</h4>
-    </div>
-  </div>
-</div>
+ 
+                          <Card
+                            key={index}
+                            thumb={b.thumb}
+                            title={b.title}
+                            times={b.times}
+                            portion={b.portion}
+                          />
 
 )
 })
 }
-    
-
      </div>
 
           </IsiBody>
