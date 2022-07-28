@@ -56,6 +56,14 @@ class Menu extends Component {
           </Link>
         </li>
         <li>
+        <li>
+        <Link to="/kuliners">
+          <Fitur onClick={() => this.props.history.push("/")}>
+            <i className="fas fa-utensils" /><span> Kategori Masakan </span>
+          </Fitur>
+          </Link>
+        </li>
+        <li>
         <Link to="/login">
           <Fitur onClick={() => this.props.history.push("/login")}>
             <i className="fas fa-key"/><span> Login </span>
