@@ -39,7 +39,18 @@ class Menu extends Component {
       </div>
       <div className="user-info">
         <div className="dropdown">
-        <font color="#0285b4"><b>{this.props.dataUserLogin.nama}</b></font>
+        <font color="#0285b4"><b>{this.props.dataUserLogin.nama}</b>
+        {this.props.checkLogin === false ? (
+              <>
+          
+              </>
+            ) : (
+              <>
+              <br/>
+              Selamat Datang
+              </>
+            )}
+        </font>
         </div>
       </div>
     </div>
@@ -58,7 +69,7 @@ class Menu extends Component {
         <li>
         <Link to="/kuliner/category">
           <Fitur onClick={() => this.props.history.push("/kuliner/category")}>
-            <i className="fas fa-bookmark" /><span> Kategori Masakan </span>
+            <i className="fas fa-bookmark" /><span> Artikel Kuliner </span>
           </Fitur>
           </Link>
         </li>
@@ -81,9 +92,16 @@ class Menu extends Component {
             ) : (
               <>
                 <li>
-        <Link to="/">
+        <Link to="/kuliners">
           <Fitur onClick={() => this.props.history.push("/")}>
-            <i className="fa fa-home" /><span> Home </span>
+            <i className="fas fa-utensils" /><span> Masak apa hari ini ? </span>
+          </Fitur>
+          </Link>
+        </li>
+        <li>
+        <Link to="/kuliner/category">
+          <Fitur onClick={() => this.props.history.push("/kuliner/category")}>
+            <i className="fas fa-bookmark" /><span> Artikel Kuliner </span>
           </Fitur>
           </Link>
         </li>

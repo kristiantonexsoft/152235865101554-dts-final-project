@@ -118,12 +118,13 @@ class Dashboard extends Component {
         let url = `https://masak-apa-tomorisakura.vercel.app/api/search/?q=${keyword}`;
     
         Promise.all([
-          fetch(url)
+          fetch(url),
+          fetch("https://masak-apa-tomorisakura.vercel.app/api/category/recipes")
         ])
-          .then(([response]) =>
-            Promise.all([response.json()])
+          .then(([response, response2]) =>
+            Promise.all([response.json(), response2.json()])
           )
-          .then(([json]) => {
+          .then(([json, res]) => {
             this.setState({
               kuliner: json.results
             });
@@ -166,9 +167,7 @@ class Dashboard extends Component {
     <IsiBody>
     <input type="text" onChange={this.searchData} name="cari" placeholder="Masukan Kata Kunci Menu Kuliner" className="form-control"/>   
     <br/>
-    <Button className="btn btn-outline-info waves-effect waves-light form-control" onClick={() => this.getKulinerKlikPrevious()}><i className="fas fa-step-backward" /> Halaman Sebelumnya</Button><br/>
-<Button className="btn btn-outline-primary waves-effect waves-light form-control" onClick={() => this.getKulinerKlikNext()}> Halaman Selanjutnya <i className="fas fa-step-forward " /></Button>
-<center>Halaman : {this.state.page}</center><br/>
+
     <div className="row">  
 
     
@@ -189,7 +188,18 @@ class Dashboard extends Component {
 )
 })
 }
+
      </div>
+
+     <table width="100%">
+<tr>
+  <td><Button className="btn btn-outline-info waves-effect waves-light form-control" onClick={() => this.getKulinerKlikPrevious()}><i className="fas fa-step-backward" /> Halaman Sebelumnya</Button><br/>
+</td>
+  <td><center><p align="center">Halaman : {this.state.page}</p></center></td>
+  <td><Button className="btn btn-outline-primary waves-effect waves-light form-control" onClick={() => this.getKulinerKlikNext()}> Halaman Selanjutnya <i className="fas fa-step-forward " /></Button>
+</td>
+</tr>
+</table>
 
           </IsiBody>
     </Content>
