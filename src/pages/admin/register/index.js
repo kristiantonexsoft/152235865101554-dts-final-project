@@ -31,14 +31,6 @@ class Register extends Component {
 
       if(obj.username == ""){
         alert("Username wajib diisi !!!")
-      }
-
-      if(obj.password == ""){
-        alert("Password wajib diisi !!!")
-      }
-
-      if(obj.nama == ""){
-        alert("Nama wajib diisi !!!")
     }else{
       var indexDivisi = this.props.dataUsers.map(function(e) { return e.username; }).indexOf(obj.username);
 
@@ -47,7 +39,6 @@ class Register extends Component {
       }else{
           this.props.saveRegister(obj);
           this.clear()
-          alert("Data berhasil disimpan !!")
           this.props.history.push("/login")
       }
       
@@ -72,7 +63,7 @@ class Register extends Component {
     <HeaderContent>
             <h3 className="page-title"><b><i className="fab fa-pied-piper-alt" />&nbsp;Register User</b></h3>
             <ol className="breadcrumb">
-              <li className="breadcrumb-item active">Sistem Informasi Bioskop</li>
+              <li className="breadcrumb-item active">Sistem mau masak apa hari ini ?</li>
             </ol>
             <div className="state-information d-none d-sm-block">
             </div>

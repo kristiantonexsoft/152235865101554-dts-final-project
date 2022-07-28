@@ -17,8 +17,8 @@ class Body extends Component {
         return (
             <Switch>
             <Route exact path="/" component={props =>   <Dashboard {...props} />}/>
-            <Route path="/films" component={props => <Dashboard {...props} />} />
-            <Route path="/film/detail/:id" component={props => <Detail {...props} />} />
+            <Route path="/kuliners" component={props => <Dashboard {...props} />} />
+            {/* <Route path="/film/detail/:id" component={props => <Detail {...props} />} /> */}
             <Route path="/login" component={props => <Login {...props} />} />
             <Route path="/register" component={props => <Register {...props} />} />
             <Route path="/logout" component={props => <Logout {...props} />} />

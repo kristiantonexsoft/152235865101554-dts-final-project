@@ -49,9 +49,9 @@ class Menu extends Component {
       {this.props.checkLogin === false ? (
               <>
                 <li>
-        <Link to="/films">
+        <Link to="/kuliners">
           <Fitur onClick={() => this.props.history.push("/")}>
-            <i className="fa fa-home" /><span> Home </span>
+            <i className="fas fa-utensils" /><span> Masak apa hari ini ? </span>
           </Fitur>
           </Link>
         </li>

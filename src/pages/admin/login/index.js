@@ -24,8 +24,6 @@ class Login extends Component {
 
     doLogin = userObj => {
       const { username, password} = userObj
-      console.log("user", username)
-      console.log("pass", password)
 
       if(username == "" || password == ""){
            alert("Data login harus diisi secara lengkap !!")
@@ -61,9 +59,9 @@ class Login extends Component {
                 <div className="row">
                   <div className="col-sm-12">
                     <div className="page-title-box">
-                      <h3 className="page-title"><b><i className="fas fa-key" />&nbsp; Login - Sistem Informasi Bioskop</b></h3>
+                      <h3 className="page-title"><b><i className="fas fa-key" />&nbsp; Login</b></h3>
                       <ol className="breadcrumb">
-                        <li className="breadcrumb-item active">DTS Pair 36 Kristianto - Riki Purnama</li>
+                        <li className="breadcrumb-item active">Sistem mau masak apa hari ini ?</li>
                       </ol>
                     </div>
                   </div>
@@ -76,8 +74,8 @@ class Login extends Component {
                           <div className="mini-stat-desc">
                             <h6 className="verti-label text-white-50">Bioskop</h6>
                             <div className="text-white">
-                              <h6 className="mt-0 text-white-50">Login</h6>
-                              <h4 className="mb-3 mt-0"><b>Login</b></h4>
+                              <h6 className="mt-0 text-white-50"></h6>
+                              <h4 className="mb-3 mt-0"><b></b></h4>
                             </div>
                             <div className="mini-stat-icon">
                               <i className="fas fa-clock  display-2" />
@@ -89,8 +87,7 @@ class Login extends Component {
                     </div>
 
                     <FormLogin>
-                <h2><center>LOGIN<br/>
-                APLIKASI BIOSKOP</center></h2>
+                <h2><center>LOGIN</center></h2>
                 <Input type="text" placeholder="Masukan Username" name="username" onChange={this.setValueInput}/><br/>
                 <Input type="password"  placeholder="Masukan Password" name="password" onChange={this.setValueInput}/><br/>
             <Button className="btn btn-primary waves-effect waves-light form-control" onClick={() => this.doLogin({username, password})}><i className="fas fa-sign-in-alt" /> Login</Button>

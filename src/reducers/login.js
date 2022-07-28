@@ -2,7 +2,7 @@ let defaultState = {
     users: [{
         username : "user",
         password : "user",
-        nama : "User Bioskop",
+        nama : "User Kuliner",
     }]
 }
 
