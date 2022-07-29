@@ -84,7 +84,7 @@ class Menu extends Component {
         <li>
         <Link to="/register">
           <Fitur onClick={() => this.props.history.push("/register")}>
-            <i className="fas fa-folder-open"/><span> Register </span>
+            <i className="fas fa-user-plus"/><span> Register </span>
           </Fitur>
           </Link>
         </li>
