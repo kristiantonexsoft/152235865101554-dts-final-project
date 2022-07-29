@@ -81,15 +81,17 @@ class Dashboard extends Component {
 )
 })
 }
-              </>
-            )}
-     
-     <Fieldset>
+
+<Fieldset>
                  <textarea className="form-control" name="komentar" value={this.state.komentar} onChange={this.setValue} rows="3"></textarea>
           </Fieldset>
           <Button className="btn btn-primary" onClick={this.sendKomentar}>
             <i className="fas fa-location-arrow " />&nbsp; Kirim Komentar &nbsp;&nbsp;
-          </Button>      
+          </Button>  
+              </>
+            )}
+     
+        
 
 
     
