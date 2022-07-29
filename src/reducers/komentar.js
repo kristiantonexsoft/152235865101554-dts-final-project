@@ -7,13 +7,13 @@ let defaultState = {
     },
     {
         nama : "Kristianto",
-        komentar : "keliatannya enak bangettt...",
+        komentar : "Buatin tutorial masak Mie Koclok Cirebon dong kak",
         tanggal : "",
         postingan : "request"
     },
     {
         nama : "Katrina Putri",
-        komentar : "gatahan liat masakannya...",
+        komentar : "Resep pempek asli palembang dong...",
         tanggal : "",
         postingan : "request"
     }
