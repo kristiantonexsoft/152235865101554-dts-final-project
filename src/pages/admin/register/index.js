@@ -65,7 +65,7 @@ class Register extends Component {
             <>
     <Content>
     <HeaderContent>
-            <h3 className="page-title"><b><i className="fab fa-pied-piper-alt" />&nbsp;Register User</b></h3>
+            <h3 className="page-title"><b><i className="fas fa-user-plus" />&nbsp;Register User</b></h3>
             <ol className="breadcrumb">
            
             </ol>
