@@ -67,9 +67,9 @@ class Menu extends Component {
           </Link>
         </li>
         <li>
-        <Link to="/kuliner/category">
-          <Fitur onClick={() => this.props.history.push("/kuliner/category")}>
-            <i className="far fa-comment " /><span> Request Tutorial </span>
+        <Link to="/request-resep">
+          <Fitur onClick={() => this.props.history.push("/request-resep")}>
+            <i className="far fa-comment " /><span> Request Resep </span>
           </Fitur>
           </Link>
         </li>
@@ -99,9 +99,9 @@ class Menu extends Component {
           </Link>
         </li>
         <li>
-        <Link to="/kuliner/category">
-          <Fitur onClick={() => this.props.history.push("/kuliner/category")}>
-          <i className="far fa-comment " /><span> Request Tutorial </span>
+        <Link to="/request-resep">
+          <Fitur onClick={() => this.props.history.push("/request-resep")}>
+            <i className="far fa-comment " /><span> Request Resep </span>
           </Fitur>
           </Link>
         </li>

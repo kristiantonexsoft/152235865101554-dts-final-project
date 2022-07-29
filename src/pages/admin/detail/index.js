@@ -60,7 +60,7 @@ class Dashboard extends Component {
             <>
     <Content>
     <HeaderContent>
-    <h3 className="page-title"><b><i className="fas fa-utensils" />&nbsp;&nbsp;{this.state.kuliner.title}</b></h3>
+    <h3 className="page-title"><b><i className="fas fa-utensils" />&nbsp;&nbsp;Masak apa hari ini ? </b></h3>
             <ol className="breadcrumb">
               <li className="breadcrumb-item active"></li>
             </ol>
@@ -68,13 +68,19 @@ class Dashboard extends Component {
            
             </div>
     </HeaderContent>
+
+
     <IsiBody>
 
-    <p align="center">
-    <h3>{this.state.kuliner.title}</h3><br/>
+    <div className="row">
+  <div className="col-xl-8">
+    <div className="card m-b-20">
+      <div className="card-body">
+       <p align="center">
+    <h3><b>{this.state.kuliner.title}</b></h3><br/>
     <button className="btn btn-primary btn-sm"><i className="fas fa-clock" /> {this.state.kuliner.times}</button>&nbsp;
       <button className="btn btn-success btn-sm"><i className="fas fa-utensils" /> {this.state.kuliner.servings}</button>&nbsp;
-      <button className="btn btn-warning btn-sm"><i className="fas fa-info" /> &nbsp; TIngkat Kesulitan : {this.state.kuliner.dificulty}</button>&nbsp;
+      <button className="btn btn-warning btn-sm"><i className="fas fa-info" /> &nbsp; Tingkat Kesulitan : {this.state.kuliner.dificulty}</button>&nbsp;
       <br/><br/>
       <i className="fas fa-user" /> Resep by : {this.state.author.user} &nbsp; <i className="fas fa-clock" /> Tanggal Publikasi : {this.state.author.datePublished}
       <br/>
@@ -89,10 +95,13 @@ class Dashboard extends Component {
       <ul>{bahanItems}</ul>
       <b>Tahapan Masak : </b>
       <ul>{stepItems}</ul>
-<br/>
-      <b><h4>Komentar : </h4></b>
-     
-
+      </div>
+    </div>
+  </div>
+  <div className="col-xl-4">
+    <div className="card m-b-20">
+      <div className="card-body">
+        <h4 className="mt-0 header-title"><b>Komentar :</b></h4>
         {
                     this.props.komentarList.map((b, index) => {     
                         return (
@@ -102,7 +111,9 @@ class Dashboard extends Component {
                           <tr key={index}>
             <td width={180}><img src='https://smkbitalaga.sch.id/uploads/gallery/media/avatar-staff.png' height={50}/> <b>{b.nama}</b>
             </td>
-            <td>" {b.komentar} "</td>
+          </tr>
+          <tr>
+          <td>{b.komentar}</td>
           </tr>
           </table>
         </font>
@@ -110,10 +121,10 @@ class Dashboard extends Component {
 )
 })
 }
-        
-
-
-    
+      </div>
+    </div>
+  </div>
+</div>
           </IsiBody>
     </Content>
 
