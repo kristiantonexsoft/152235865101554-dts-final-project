@@ -8,13 +8,25 @@ let defaultState = {
         nama : "Kristianto",
         komentar : "keliatannya enak bangettt...",
         tanggal : "",
-        postingan : ""
+        postingan : "komentar"
     },
     {
         nama : "Ikhlasul Amal",
         komentar : "gatahan liat masakannya...",
         tanggal : "",
-        postingan : ""
+        postingan : "komentar"
+    },
+    {
+        nama : "Kristianto",
+        komentar : "keliatannya enak bangettt...",
+        tanggal : "",
+        postingan : "request"
+    },
+    {
+        nama : "Katrina Putri",
+        komentar : "gatahan liat masakannya...",
+        tanggal : "",
+        postingan : "request"
     }
 ]
 }

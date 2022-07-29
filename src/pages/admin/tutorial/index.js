@@ -31,12 +31,15 @@ class Dashboard extends Component {
     </HeaderContent>
     <IsiBody>
 
-    
-      <b><h4>Komentar : </h4></b>
-     
-
+      {this.props.checkLogin === false ? (
+              <>
+                 <center><h4><b>Silahkan login terlebih dahulu</b></h4><img src="https://img.freepik.com/premium-vector/login-access-denied-vector-illustration-system-refuses-password-error-entry-computer-device-showing-user-does-have-permission-website-mobile-development_2175-1276.jpg?w=740" /></center>
+              </>
+            ) : (
+              <>
+              <h4><b> <i className="far fa-comment " /> Request Resep : </b></h4>
         {
-                    this.props.komentarList.map((b, index) => {     
+                    this.props.komentarList.filter(a => a.postingan === "request").map((b, index) => {     
                         return (
                           <div className="alert alert-secondary" role="alert">
       <font color="#0285b4">
@@ -52,6 +55,9 @@ class Dashboard extends Component {
 )
 })
 }
+              </>
+            )}
+     
         
 
 

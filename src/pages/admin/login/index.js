@@ -88,8 +88,8 @@ class Login extends Component {
 
                     <FormLogin>
                 <h2><center>LOGIN</center></h2>
-                <Input type="text" placeholder="Masukan Username" name="username" onChange={this.setValueInput}/><br/>
-                <Input type="password"  placeholder="Masukan Password" name="password" onChange={this.setValueInput}/><br/>
+                <Input type="text" placeholder="Masukan Username" name="username" onChange={this.setValueInput} required="required"/><br/>
+                <Input type="password"  placeholder="Masukan Password" name="password" onChange={this.setValueInput} required="required"/><br/>
             <Button className="btn btn-primary waves-effect waves-light form-control" onClick={() => this.doLogin({username, password})}><i className="fas fa-sign-in-alt" /> Login</Button>
     </FormLogin>
                   

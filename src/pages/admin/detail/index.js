@@ -103,7 +103,7 @@ class Dashboard extends Component {
       <div className="card-body">
         <h4 className="mt-0 header-title"><b>Komentar :</b></h4>
         {
-                    this.props.komentarList.map((b, index) => {     
+                    this.props.komentarList.filter(a => a.postingan === "komentar").map((b, index) => {     
                         return (
                           <div className="alert alert-secondary" role="alert">
       <font color="#0285b4">
@@ -121,6 +121,18 @@ class Dashboard extends Component {
 )
 })
 }
+
+{this.props.checkLogin === false ? (
+              <>
+                 <center><b>Silahkan login<br/>untuk menambahkan komentar</b><img src="https://img.freepik.com/premium-vector/login-access-denied-vector-illustration-system-refuses-password-error-entry-computer-device-showing-user-does-have-permission-website-mobile-development_2175-1276.jpg?w=740" height={175}/></center>
+              </>
+            ) : (
+              <>
+     
+              </>
+            )}
+     
+
       </div>
     </div>
   </div>
