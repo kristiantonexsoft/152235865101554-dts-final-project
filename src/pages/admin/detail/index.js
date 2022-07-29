@@ -169,8 +169,8 @@ class Dashboard extends Component {
 
 {this.props.checkLogin === false ? (
               <>
-                 <center><b>Silahkan login<br/>untuk menambahkan komentar</b><img src="https://img.freepik.com/premium-vector/login-access-denied-vector-illustration-system-refuses-password-error-entry-computer-device-showing-user-does-have-permission-website-mobile-development_2175-1276.jpg?w=740" height={175}/></center>
-              </>
+                 <center><b>Silahkan login<br/>untuk menambahkan komentar</b></center>
+               </>
             ) : (
               <>
                  <Fieldset>
