@@ -3,32 +3,7 @@ let defaultState = {
         username : "user",
         password : "user",
         nama : "User Kuliner",
-    }],
-    komentar : [{
-        nama : "Kristianto",
-        komentar : "keliatannya enak bangettt...",
-        tanggal : "",
-        postingan : "komentar"
-    },
-    {
-        nama : "Ikhlasul Amal",
-        komentar : "gatahan liat masakannya...",
-        tanggal : "",
-        postingan : "komentar"
-    },
-    {
-        nama : "Kristianto",
-        komentar : "keliatannya enak bangettt...",
-        tanggal : "",
-        postingan : "request"
-    },
-    {
-        nama : "Katrina Putri",
-        komentar : "gatahan liat masakannya...",
-        tanggal : "",
-        postingan : "request"
-    }
-]
+    }]
 }
 
 const userReducer = (state = defaultState, action) => {
@@ -51,27 +26,6 @@ const userReducer = (state = defaultState, action) => {
 
             return {
                 users: data
-            }
-
-            case "SAVE_MASAKAN":
-
-            let newData2 = {
-                username: action.payload.username,
-                password: action.payload.password,
-                nama: action.payload.nama
-            }
-            
-            let data2 = {}
-
-            if (state.komentar.length === 0) {
-                data2 = state.komentar.concat(newData2)
-                data2 = state.komentar.concat(newData2)
-            } else {
-                data2 = state.komentar.concat(newData2)
-            }
-
-            return {
-                komentar: data2
             }
 
             case "CLEAR_DATA":

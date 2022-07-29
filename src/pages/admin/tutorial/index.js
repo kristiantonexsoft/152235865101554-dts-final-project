@@ -3,16 +3,41 @@ import { connect } from "react-redux"
 import { 
   IsiBody,
   HeaderContent, 
-  Content} from "../../../component"
+  Content, Fieldset, Button} from "../../../component"
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            
-            url : ""
+        this.state = {    
+            url : "",
+            komentar : "",
+            nama : this.props.dataUserLogin.nama, 
+            postingan : "request"
         }
     }
+
+    setValue= el=>{
+        this.setState({
+            [el.target.name]: el.target.value
+        })
+      }
+  
+      sendKomentar= el =>{
+        let obj = this.state
+        if(obj.komentar !== ""){
+          this.props.saveKomentar(obj);
+            this.clear()
+            let url = `/request-resep`;
+            this.props.history.push(url)
+        }
+      }
+  
+      clear = () => {
+        this.setState({ 
+          komentar : ""
+        })
+    }
+  
 
    
   render() {
@@ -51,6 +76,7 @@ class Dashboard extends Component {
           </tr>
           </table>
         </font>
+
      </div>
 )
 })
@@ -58,7 +84,12 @@ class Dashboard extends Component {
               </>
             )}
      
-        
+     <Fieldset>
+                 <textarea className="form-control" name="komentar" value={this.state.komentar} onChange={this.setValue} rows="3"></textarea>
+          </Fieldset>
+          <Button className="btn btn-primary" onClick={this.sendKomentar}>
+            <i className="fas fa-location-arrow " />&nbsp; Kirim Komentar &nbsp;&nbsp;
+          </Button>      
 
 
     
@@ -75,12 +106,13 @@ class Dashboard extends Component {
 const mapStateToProps = state => ({
   checkLogin: state.AReducer.isLogin,
   dataUserLogin: state.AReducer.userLogin,
-  komentarList: state.UReducer.komentar
+  komentarList: state.KReducer.komentar
 })
 
 const mapDispatchToProps = dispatch => {
   return {
     keluar: () => dispatch({ type: "LOGOUT_SUCCESS" }),
+    saveKomentar: (data)=> dispatch({type:"SAVE_MASAKAN", payload: data})
   }
 }
 
