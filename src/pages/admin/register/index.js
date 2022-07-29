@@ -9,6 +9,7 @@ import {
   IsiBody,
   HeaderContent, 
   Content} from "../../../component"
+  import swal from "sweetalert";
 
 class Register extends Component {
     constructor(props) {
@@ -29,20 +30,23 @@ class Register extends Component {
   setRegistrasi= el =>{
       let obj = this.state
 
-      if(obj.username == ""){
-       
-    }else{
+  if(obj.username === "" || obj.nama === "" || obj.password === ""){
+
+    swal("Gagal !", "Nama User, Username atau Password harus diisi" , "error");
+
+  }else{
       var indexDivisi = this.props.dataUsers.map(function(e) { return e.username; }).indexOf(obj.username);
 
       if(indexDivisi >=0){
-          alert("Username sudah ada!! Silahkan masukan nama lain...")
+        swal("Gagal !", "Username sudah ada!! Silahkan masukan nama lain..." , "error");
       }else{
           this.props.saveRegister(obj);
           this.clear()
+          swal("Sukses", "Registrasi berhasil... Silahkan login" , "success");
           this.props.history.push("/login")
       }
       
-    }
+  }
 
   }
 

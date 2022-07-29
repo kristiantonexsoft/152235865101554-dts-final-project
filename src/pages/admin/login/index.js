@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { Button,
   Input,
- FormLogin,
- Fieldset,
- Select,
- Option } from "../../../component"
+ FormLogin} from "../../../component"
+ import swal from "sweetalert";
 
 class Login extends Component {
     constructor(props) {
@@ -26,7 +24,7 @@ class Login extends Component {
       const { username, password} = userObj
 
       if(username == "" || password == ""){
-           
+        swal("Gagal", "Username atau Password harus diisi..." , "error");  
       }else{
 
         let validLogin = this.props.dataUser.filter(user => {
@@ -41,7 +39,7 @@ class Login extends Component {
             this.props.submitLogin({userData: dataLogin[0]})
             this.props.history.push("/")
         }else{
-             alert("Username atau Password Salah !!")
+          swal("Gagal !", "Username atau Password salah..." , "error");
              this.props.history.push("/login")
         }
 
