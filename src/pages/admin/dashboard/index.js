@@ -165,7 +165,7 @@ class Dashboard extends Component {
             </div>
     </HeaderContent>
     <IsiBody>
-    <input type="text" onChange={this.searchData} name="cari" placeholder="Masukan Kata Kunci Menu Kuliner" className="form-control"/>   
+    <input type="text" onChange={this.searchData} name="cari" placeholder="Masukan kata kunci pencarian" className="form-control"/>   
     <br/>
 
     <div className="row">  
