@@ -25,6 +25,7 @@ class Header extends Component {
       .then((logout) => {
         if (logout) {
           this.props.logoutAction()
+          this.props.history.push("/login")
         } else {
           swal("Batal !", "Logout dibatalkan...", "error");
         }
