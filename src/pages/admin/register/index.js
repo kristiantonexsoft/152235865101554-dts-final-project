@@ -65,7 +65,6 @@ class Register extends Component {
             <>
     <Content>
     <HeaderContent>
-            <h3 className="page-title"><b><i className="fas fa-user-plus" />&nbsp;Register User</b></h3>
             <ol className="breadcrumb">
            
             </ol>
@@ -73,6 +72,7 @@ class Register extends Component {
             </div>
     </HeaderContent>
     <IsiBody>
+    <h2><center><img src="https://cdn0.iconfinder.com/data/icons/basic-11/97/16-512.png" height={135}/><br/>REGISTER</center></h2>
     <Fieldset>
       
             <Label>Nama Pengguna <font color="red">*</font></Label>
@@ -88,7 +88,6 @@ class Register extends Component {
             <Label>Password <font color="red">*</font></Label>
             <Input type="password" name="password" required="required" value={this.state.password} onChange={this.setValue}/>
           </Fieldset>
-          Wajib diisi <font color="red">(*)</font><br/><br/>
           <Button className="btn btn-primary" onClick={this.setRegistrasi}>
             <i className="fa fa-save" />&nbsp; Register
           </Button>

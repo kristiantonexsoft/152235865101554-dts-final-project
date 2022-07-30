@@ -33,7 +33,7 @@ class Menu extends Component {
           
               </>
             ) : (
-              <img src={logo} className="thumb-md rounded-circle" />
+              <img src="https://smkbitalaga.sch.id/uploads/gallery/media/avatar-staff.png" className="thumb-md rounded-circle" />
             )}
         
       </div>
@@ -57,8 +57,6 @@ class Menu extends Component {
     <div id="sidebar-menu">
       <ul className="metismenu" id="side-menu">
 
-      {this.props.checkLogin === false ? (
-              <>
                 <li>
         <Link to="/kuliners">
           <Fitur onClick={() => this.props.history.push("/")}>
@@ -73,47 +71,6 @@ class Menu extends Component {
           </Fitur>
           </Link>
         </li>
-        <li>
-        <Link to="/login">
-          <Fitur onClick={() => this.props.history.push("/login")}>
-            <i className="fas fa-key"/><span> Login </span>
-          </Fitur>
-          </Link>
-        </li>
-
-        <li>
-        <Link to="/register">
-          <Fitur onClick={() => this.props.history.push("/register")}>
-            <i className="fas fa-user-plus"/><span> Register </span>
-          </Fitur>
-          </Link>
-        </li>
-              </>
-            ) : (
-              <>
-                <li>
-        <Link to="/kuliners">
-          <Fitur onClick={() => this.props.history.push("/")}>
-            <i className="fas fa-utensils" /><span> Masak apa hari ini ? </span>
-          </Fitur>
-          </Link>
-        </li>
-        <li>
-        <Link to="/request-resep">
-          <Fitur onClick={() => this.props.history.push("/request-resep")}>
-            <i className="far fa-comment " /><span> Request Resep </span>
-          </Fitur>
-          </Link>
-        </li>
-        <li>
-        <Link to="/logout">
-          <Fitur redirect={() => { this.doLogout()}}>
-            <i className="fas fa-sign-out-alt" /><span> Logout </span>
-          </Fitur>
-          </Link>
-        </li>
-              </>
-            )}
               
       </ul>
     </div>

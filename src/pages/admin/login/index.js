@@ -58,7 +58,7 @@ class Login extends Component {
                 <div className="row">
                   <div className="col-sm-12">
                     <div className="page-title-box">
-                      <h3 className="page-title"><b><i className="fas fa-key" />&nbsp; Login</b></h3>
+                    
                       <ol className="breadcrumb">
                        
                       </ol>
@@ -86,7 +86,8 @@ class Login extends Component {
                     </div>
 
                     <FormLogin>
-                <h2><center>LOGIN</center></h2>
+                <h2><center><img src="https://cdn0.iconfinder.com/data/icons/basic-11/97/16-512.png" height={150}/><br/><br/>LOGIN</center></h2>
+                
                 <Input type="text" placeholder="Masukan Username" name="username" onChange={this.setValueInput}/><br/>
                 <Input type="password"  placeholder="Masukan Password" name="password" onChange={this.setValueInput}/><br/>
             <Button className="btn btn-primary waves-effect waves-light form-control" onClick={() => this.doLogin({username, password})}><i className="fas fa-sign-in-alt" /> Login</Button>
