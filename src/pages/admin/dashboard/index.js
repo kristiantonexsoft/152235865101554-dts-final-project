@@ -195,7 +195,7 @@ class Dashboard extends Component {
 <tr>
   <td><Button className="btn btn-outline-info waves-effect waves-light form-control" onClick={() => this.getKulinerKlikPrevious()}><i className="fas fa-step-backward" /> Halaman Sebelumnya</Button><br/>
 </td>
-  <td><center><p align="center">Halaman : {this.state.page}</p></center></td>
+  <td><center><p align="center"><br/>Halaman : {this.state.page}</p></center></td>
   <td><Button className="btn btn-outline-primary waves-effect waves-light form-control" onClick={() => this.getKulinerKlikNext()}> Halaman Selanjutnya <i className="fas fa-step-forward " /></Button>
 </td>
 </tr>
